@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "name": "DJ Kalango",
+      "email": "djkalango@djkalango.com.br",
+      "password": "djkalango",
+      "id": 1
+    },
+    {
+      "nameUser": "danilo",
+      "emailUser": "danilo@danilo.com.br",
+      "passwordUser": "danilo",
+      "id": 2
+    },
+    {
+      "name": "danilo",
+      "password": "danilo",
+      "id": 3
+    },
+    {
+      "nameUser": "Joao",
+      "emailUser": "joao@joao.com.br",
+      "passwordUser": "joaoaaa",
+      "id": 4
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "flyer": "djk01.jpg",
+      "name": "A Volta do Kalango",
+      "date": "2021-12-12",
+      "time": "17:00",
+      "address": "Rua Jose Lourenco, 393",
+      "district": "Sao Pedro",
+      "city": "Juiz de Fora",
+      "state": "MG",
+      "phone": "(32) 999659375",
+      "obs": "https://www.google.com/maps/place/Rua+Jos%C3%A9+Louren%C3%A7o,+393+-+S%C3%A3o+Pedro,+Juiz+de+Fora+-+MG",
+      "heart": "S"
+    },
+    {
+      "id": 2,
+      "flyer": "djk02.jpg",
+      "name": "Quartas Intenções",
+      "date": "2022-03-04",
+      "time": "22:00",
+      "address": "Rua Jose Lourenco, 393",
+      "district": "Sao Pedro",
+      "city": "Juiz de Fora",
+      "state": "MG",
+      "phone": "(32) 999659375",
+      "obs": "https://www.google.com/maps/place/Rua+Jos%C3%A9+Louren%C3%A7o,+393+-+S%C3%A3o+Pedro,+Juiz+de+Fora+-+MG",
+      "heart": "S"
+    },
+    {
+      "id": 3,
+      "flyer": "djk03.jpg",
+      "name": "DJ Kalango - 14 ans",
+      "date": "2022-07-23",
+      "time": "18:00",
+      "address": "Rua Jose Lourenco, 393",
+      "district": "Sao Pedro",
+      "city": "Juiz de Fora",
+      "state": "MG",
+      "phone": "(32) 999659375",
+      "obs": "https://www.google.com/maps/place/Rua+Jos%C3%A9+Louren%C3%A7o,+393+-+S%C3%A3o+Pedro,+Juiz+de+Fora+-+MG",
+      "heart": "S"
+    },
+    {
+      "id": 4,
+      "flyer": "djk04.jpg",
+      "name": "JFBurger",
+      "date": "2022-10-12",
+      "time": "16:00",
+      "address": "Rua Jose Lourenco, 393",
+      "district": "Sao Pedro",
+      "city": "Juiz de Fora",
+      "state": "MG",
+      "phone": "(32) 999659375",
+      "obs": "https://www.google.com/maps/place/Rua+Jos%C3%A9+Louren%C3%A7o,+393+-+S%C3%A3o+Pedro,+Juiz+de+Fora+-+MG",
+      "heart": ""
+    },
+    {
+      "id": 5,
+      "flyer": "djk05.jpg",
+      "name": "Forró de Terça",
+      "date": "2022-04-30",
+      "time": "20:00",
+      "address": "Rua Jose Lourenco, 393",
+      "district": "Sao Pedro",
+      "city": "Juiz de Fora",
+      "state": "MG",
+      "phone": "(32) 999659375",
+      "obs": "https://www.google.com/maps/place/Rua+Jos%C3%A9+Louren%C3%A7o,+393+-+S%C3%A3o+Pedro,+Juiz+de+Fora+-+MG",
+      "heart": ""
+    },
+    {
+      "id": 6,
+      "flyer": "djk06.jpg",
+      "name": "Revivendo o Forró Bodó",
+      "date": "2022-03-23",
+      "time": "16:00",
+      "address": "Rua Jose Lourenco, 393",
+      "district": "Sao Pedro",
+      "city": "Juiz de Fora",
+      "state": "MG",
+      "phone": "(32) 999659375",
+      "obs": "https://www.google.com/maps/place/Rua+Jos%C3%A9+Louren%C3%A7o,+393+-+S%C3%A3o+Pedro,+Juiz+de+Fora+-+MG",
+      "heart": ""
+    },
+    {
+      "id": 7,
+      "flyer": "djk07.jpg",
+      "name": "Dia Nacional do Forró",
+      "date": "2022-12-11",
+      "time": "20:00",
+      "address": "Rua Jose Lourenco, 393",
+      "district": "Sao Pedro",
+      "city": "Juiz de Fora",
+      "state": "MG",
+      "phone": "(32) 999659375",
+      "obs": "https://www.google.com/maps/place/Rua+Jos%C3%A9+Louren%C3%A7o,+393+-+S%C3%A3o+Pedro,+Juiz+de+Fora+-+MG",
+      "heart": ""
+    },
+    {
+      "id": 8,
+      "flyer": "djk08.jpg",
+      "name": "Forró Fest",
+      "date": "2021-12-14",
+      "time": "23:00",
+      "address": "Rua Jose Lourenco, 393",
+      "district": "Sao Pedro",
+      "city": "Juiz de Fora",
+      "state": "MG",
+      "phone": "(32) 999659375",
+      "obs": "https://www.google.com/maps/place/Rua+Jos%C3%A9+Louren%C3%A7o,+393+-+S%C3%A3o+Pedro,+Juiz+de+Fora+-+MG",
+      "heart": ""
+    }
+  ]
+}
