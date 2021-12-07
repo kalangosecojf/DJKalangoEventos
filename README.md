@@ -6,7 +6,7 @@ Professor(a): Érica C. R. Carvalho
 
 Alunos: Danilo Santos e Thulio Batista
 
-Data de entrega e apresentação: 08/12/21
+Data de entrega e apresentação: 08/12/2021
 
 Valor: 6 pontos
 
