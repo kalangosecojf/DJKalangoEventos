@@ -58,7 +58,7 @@ export default function RegisterScreen({ navigation }) {
             .then((response) => {
               if (response.ok) {
                 alert("Cadastro realizado com sucesso");
-                navigation.navigate("LoginScreen");
+                navigation.navigate("Login");
               }
               else {
                 alert("Ocorreu uma falha no cadastro");
@@ -76,7 +76,6 @@ export default function RegisterScreen({ navigation }) {
   return (
     <Background>
       <Logo />
-      <Header>Create Account</Header>
       <TextInput
         label="Name"
         returnKeyType="next"
@@ -115,7 +114,7 @@ export default function RegisterScreen({ navigation }) {
       </Button>
       <View style={styles.row}>
         <Text>Already have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.replace('LoginScreen')}>
+        <TouchableOpacity onPress={() => navigation.replace('Login')}>
           <Text style={styles.link}>Login</Text>
         </TouchableOpacity>
       </View>

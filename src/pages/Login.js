@@ -14,6 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { URL } from '../server/constants';
 
 export default function LoginScreen({ navigation }) {
+
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
 
@@ -25,6 +26,7 @@ export default function LoginScreen({ navigation }) {
       setPassword({ ...password, error: passwordError })
       return
     }
+
     const result = await fetch(`${URL}/users?emailUser=${email.value}&passwordUser=${password.value}`, {
       method: "GET",
       headers: {
@@ -62,7 +64,6 @@ export default function LoginScreen({ navigation }) {
   return (
     <Background>
       <Logo />
-      <Header>Welcome</Header>
       <TextInput
         label="Email"
         returnKeyType="next"
@@ -89,7 +90,7 @@ export default function LoginScreen({ navigation }) {
       </Button>
       <View style={styles.row}>
         <Text>Don’t have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
+        <TouchableOpacity onPress={() => navigation.replace('Register')}>
           <Text style={styles.link}>Sign up</Text>
         </TouchableOpacity>
       </View>
@@ -98,11 +99,6 @@ export default function LoginScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  forgotPassword: {
-    width: '100%',
-    alignItems: 'flex-end',
-    marginBottom: 24,
-  },
   row: {
     flexDirection: 'row',
     marginTop: 4,

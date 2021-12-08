@@ -9,15 +9,28 @@ import { Card, ListItem, Icon } from 'react-native-elements'
 import { URL } from '../server/constants';
 
 
-export default function Dashboard({ navigation }) {
+export default function Home({ navigation }) {
 
 
 
   const [isLoading, setIsLoading] = useState(true);
   const [events, setEvents] = useState([]);
+  const [iconSave, setIconSave] = useState(false)
 
   const [heartIcon, setHeartIcon] = useState('heart-outline');
 
+
+  function updateHeartIcon(id) {
+    const favorites = events.map(event => {
+      return event.id === id ? { ...event, marked: !event.marked } : event
+    })
+    setHeartIcon(favorites)
+  }
+
+  useEffect(() => {
+    const favIcons = events.filter(icon => icon == true ? 'heart-outline' : 'heart')
+    setIconSave(favIcons)
+  }, [events])
 
   const getData = async () => {
     try {
@@ -42,52 +55,52 @@ export default function Dashboard({ navigation }) {
         {
           events.map((u, i) => {
             return (
-              <Card.Divider>
-                <View key={i} style={styles.user}>
-                  <Image
-                    style={styles.img}
-                    resizeMode="cover"
-                    source={require("../assets/flyers/" + u.flyer)}
-                  />
+              <View key={i} style={styles.user}>
+                <Image
+                  style={styles.img}
+                  resizeMode="cover"
+                  source={require("../assets/flyers/" + (u.flyer ? u.flyer : "djk00.png"))}
+                />
 
-                  <View style={{ flex: 1, flexDirection: 'row' }}>
-                    <View style={{ width: 200, height: 50 }} >
-                      <Paragraph>
-                        {u.name}
-                      </Paragraph>
-                    </View>
-                    <View style={{ width: 30, height: 30 }} >
-                      <Button
-                        icon={u.heart ? "heart" : "heart-outline"}
-                        color="#f87c20"
-                        labelStyle={{ fontSize: 25 }}
-                      />
-                    </View>
-                    <View style={{ width: 30, height: 30 }} >
-                      <Button
-                        icon='eye'
-                        color="#f87c20"
-                        labelStyle={{ fontSize: 25 }}
-                        onPress={() => navigation.navigate("Details", {
-                          id: u.id
-                        })}
-                      />
-                    </View>
-                    <View style={{ width: 30, height: 30 }} >
-                      <Button
-                        icon='google-maps'
-                        color="#f87c20"
-                        labelStyle={{ fontSize: 25 }}
-                        text="Go To Maps"
-                        status="info"
-                        onPress={() => Linking.openURL("https://www.google.com/maps/place/" + u.address + " - " + u.district + " - " + u.city + " - " + u.state)}
-                      />
-                    </View>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                  <View style={{ width: 200, height: 50 }} >
+                    <Paragraph>
+                      {u.name}
+                    </Paragraph>
+                  </View>
+                  <View style={{ width: 30, height: 30 }} >
+                    <Button
+                      icon={u.heart ? "heart" : "heart-outline"}
+                      color="#f87c20"
+                      labelStyle={{ fontSize: 25 }}
+                      onPress={() => updateHeartIcon(u.id)}
+                    />
                   </View>
 
+                  <View style={{ width: 30, height: 30 }} >
+                    <Button
+                      icon='eye'
+                      color="#f87c20"
+                      labelStyle={{ fontSize: 25 }}
+                      onPress={() => navigation.navigate("Details", {
+                        id: u.id
+                      })}
+                    />
+                  </View>
+                  <View style={{ width: 30, height: 30 }} >
+                    <Button
+                      icon='google-maps'
+                      color="#f87c20"
+                      labelStyle={{ fontSize: 25 }}
+                      text="Go To Maps"
+                      status="info"
+                      onPress={() => Linking.openURL("https://www.google.com/maps/place/" + u.address + " - " + u.district + " - " + u.city + " - " + u.state)}
+                    />
+                  </View>
                 </View>
 
-              </Card.Divider>
+              </View>
+
 
             );
           })
@@ -97,13 +110,10 @@ export default function Dashboard({ navigation }) {
       <Button
         mode="outlined"
         onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'LoginScreen' }],
-          })
+          navigation.navigate("EventForm")
         }
       >
-        Logout
+        New Event
       </Button>
 
 

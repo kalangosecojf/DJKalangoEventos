@@ -18,7 +18,15 @@ export default function Favorites({ navigation }) {
 
     const [heartIcon, setHeartIcon] = useState('heart-outline');
 
+    const updateHeartIcon = (value) => {
+        if (value == 'heart') {
+            useState('heart-outline')
+        }
+        else {
+            useState('heart')
+        }
 
+    }
     const getData = async () => {
         try {
             const response = await fetch(`${URL}/events`);
@@ -32,59 +40,64 @@ export default function Favorites({ navigation }) {
     }
     useEffect(() => {
         getData();
+
+
     }, [])
 
 
     return (
         <Background>
             <Logo />
+            <Header>Home</Header>
             <Card>
                 {
                     events.map((u, i) => {
                         return (
-                            <Card.Divider>
-                                <View key={i} style={styles.user}>
-                                    <Image
-                                        style={styles.img}
-                                        resizeMode="cover"
-                                        source={require("../assets/flyers/" + u.flyer)}
-                                    />
+                            <View key={i} style={styles.user}>
+                                <Image
+                                    style={styles.img}
+                                    resizeMode="cover"
+                                    source={require("../assets/flyers/" + u.flyer)}
+                                />
 
-                                    <View style={{ flex: 1, flexDirection: 'row' }}>
-                                        <View style={{ width: 200, height: 50 }} >
-                                            <Paragraph>
-                                                {u.name}
-                                            </Paragraph>
-                                        </View>
-                                        <View style={{ width: 30, height: 30 }} >
-                                            <Button
-                                                icon={u.heart ? "heart" : "heart-outline"}
-                                                color="#f87c20"
-                                                labelStyle={{ fontSize: 25 }}
-                                            />
-                                        </View>
-                                        <View style={{ width: 30, height: 30 }} >
-                                            <Button
-                                                icon='eye'
-                                                color="#f87c20"
-                                                labelStyle={{ fontSize: 25 }}
-                                            />
-                                        </View>
-                                        <View style={{ width: 30, height: 30 }} >
-                                            <Button
-                                                icon='google-maps'
-                                                color="#f87c20"
-                                                labelStyle={{ fontSize: 25 }}
-                                                text="Go To Maps"
-                                                status="info"
-                                                onPress={() => Linking.openURL("https://www.google.com/maps/place/" + u.address + " - " + u.district + " - " + u.city + " - " + u.state)}
-                                            />
-                                        </View>
+                                <View style={{ flex: 1, flexDirection: 'row' }}>
+                                    <View style={{ width: 200, height: 50 }} >
+                                        <Paragraph>
+                                            {u.name}
+                                        </Paragraph>
                                     </View>
-
+                                    <View style={{ width: 30, height: 30 }} >
+                                        <Button
+                                            icon={u.heart ? "heart" : "heart-outline"}
+                                            color="#f87c20"
+                                            labelStyle={{ fontSize: 25 }}
+                                            onPress={() => updateHeartIcon(u.heart)}
+                                        />
+                                    </View>
+                                    <View style={{ width: 30, height: 30 }} >
+                                        <Button
+                                            icon='eye'
+                                            color="#f87c20"
+                                            labelStyle={{ fontSize: 25 }}
+                                            onPress={() => navigation.navigate("Details", {
+                                                id: u.id
+                                            })}
+                                        />
+                                    </View>
+                                    <View style={{ width: 30, height: 30 }} >
+                                        <Button
+                                            icon='google-maps'
+                                            color="#f87c20"
+                                            labelStyle={{ fontSize: 25 }}
+                                            text="Go To Maps"
+                                            status="info"
+                                            onPress={() => Linking.openURL("https://www.google.com/maps/place/" + u.address + " - " + u.district + " - " + u.city + " - " + u.state)}
+                                        />
+                                    </View>
                                 </View>
 
-                            </Card.Divider>
+                            </View>
+
 
                         );
                     })
