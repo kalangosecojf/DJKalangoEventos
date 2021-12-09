@@ -17,10 +17,15 @@ const Stack = createStackNavigator()
 //        </Provider>
 const StackNavigation = () => {
     return (
+
         <Stack.Navigator
             initialRouteName="Login"
             screenOptions={{
                 headerShown: true,
+                headerMode: 'screen',
+                headerTintColor: theme.colors.iconPrimary,
+                headerStyle: { backgroundColor: theme.colors.primary },
+                headerTitleStyle: { color: theme.colors.iconPrimary }
             }}
         >
             <Stack.Screen name="Login" component={Login} />
@@ -31,7 +36,6 @@ const StackNavigation = () => {
             <Stack.Screen name="EventForm" component={EventForm} />
             <Stack.Screen name="Tabs" component={TabsNavigation} />
         </Stack.Navigator>
-
     )
 }
 

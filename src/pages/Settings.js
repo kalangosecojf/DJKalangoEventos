@@ -11,7 +11,7 @@ import { theme } from '../core/theme'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { URL } from '../server/constants';
 
-export default function EventForm({ navigation, route }) {
+export default function Settings({ navigation, route }) {
     const [idDetail, setIdDetail] = useState(route.params?.id);
     const [btnAction, setBtnAction] = useState(route.params?.action);
 

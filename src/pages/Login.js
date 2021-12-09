@@ -53,6 +53,7 @@ export default function LoginScreen({ navigation }) {
       }
       storeData(result);
       navigation.navigate("Home");
+
     }
     else {
       alert("Usuário não cadastrado.")

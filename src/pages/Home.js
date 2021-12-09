@@ -63,9 +63,15 @@ export default function Home({ navigation }) {
                 />
 
                 <View style={{ flex: 1, flexDirection: 'row' }}>
-                  <View style={{ width: 200, height: 50 }} >
+                  <View style={{ width: 200, height: 100 }} >
                     <Paragraph>
-                      {u.name}
+                      Id: {u.id} - {u.name}
+                    </Paragraph>
+                    <Paragraph>
+                      Date: {u.date}
+                    </Paragraph>
+                    <Paragraph>
+                      Contact: {u.phone}
                     </Paragraph>
                   </View>
                   <View style={{ width: 30, height: 30 }} >
@@ -108,14 +114,23 @@ export default function Home({ navigation }) {
       </Card>
 
       <Button
-        mode="outlined"
+        mode="contained"
         onPress={() =>
-          navigation.navigate("EventForm")
+          navigation.navigate("EventForm", { action: 'new' })
         }
       >
         New Event
       </Button>
 
+
+      <Button
+        mode="contained"
+        onPress={() =>
+          navigation.navigate("Tabs")
+        }
+      >
+        Ver Tabs
+      </Button>
 
     </Background>
 

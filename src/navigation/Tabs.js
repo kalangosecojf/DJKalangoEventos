@@ -1,10 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { theme } from '../core/theme'
 
 import Home from '../pages/Home';
 import Favorites from '../pages/Favorites';
-import Details from '../pages/Details';
+import Settings from '../pages/Settings';
 import Login from '../pages/Login';
 import EventForm from '../pages/EventForm';
 
@@ -18,11 +19,14 @@ const icons = {
     Favorites: {
         name: 'heart'
     },
-    Details: {
-        name: 'hearto'
+    Settings: {
+        name: 'settings'
+    },
+    EventForm: {
+        name: 'add-circle'
     },
     Logout: {
-        name: 'logout'
+        name: 'exit'
     },
 }
 
@@ -31,20 +35,20 @@ const TabsNavigation = () => {
         <Tabs.Navigator
             initialRouteName="Home"
             screenOptions={({ route }) => ({
-                tabBarIcon: () => {
-                    const { name } = icons[route.name];
-                    return <AntDesign name={name} color='#f87c20' size={30} />
+                tabBarIcon: ({ color, size }) => {
+                    const { name } = icons[route.name]
+                    return <Ionicons name={name} color={theme.colors.iconPrimary} size={30} />
                 },
                 tabBarStyle: {
-                    backgroundColor: 'white'
+                    backgroundColor: theme.colors.primary
                 },
-                tabBarActiveTintColor: '#f87c20',
-                tabBarInactiveTintColor: 'gray',
+                tabBarActiveTintColor: theme.colors.iconPrimary,
+                tabBarInactiveTintColor: theme.colors.iconPrimary,
 
                 headerStyle: {
-                    backgroundColor: 'black'
+                    backgroundColor: theme.colors.primary
                 },
-                headerTintColor: 'white',
+                headerTintColor: theme.colors.iconPrimary,
             })
             }
         >
@@ -57,8 +61,8 @@ const TabsNavigation = () => {
                 component={Favorites}
             />
             <Tabs.Screen
-                name="Details"
-                component={Details}
+                name="Settings"
+                component={Settings}
             />
             <Tabs.Screen
                 name="EventForm"
@@ -66,7 +70,7 @@ const TabsNavigation = () => {
             />
             <Tabs.Screen
                 name="Logout"
-                component={LoginScreen}
+                component={Login}
             />
         </Tabs.Navigator>
     );
